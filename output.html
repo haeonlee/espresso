@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESPRESSO</title>
+    <link rel="stylesheet" href="css/output.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="image/logo.png"></a>
+        </div>
+    </header>
+
+    <main>
+        <div class="buttons">
+            <button id="button1" class="active" onclick="showContent('content1')">마케팅 전략</button>
+            <button id="button2" onclick="showContent('content2')">로고 및 문구</button>
+            <button id="button3" onclick="showContent('content3')">SNS 컨텐츠</button>
+        </div>
+
+        <div class="contentBox">
+            <div class="contentText">
+                <div id="content1" class="content-section">
+                    <!-- Django에서 받은 마케팅 전략 -->
+                    시장 세분화<br>
+                    - Demographic: 20-40대, 남녀 모두, 건강식을 좋아하는 사람들<br>
+                    - Psychographic: 환경 보호와 윤리적 가치에 관심이 있는 사람들<br>
+                    - Behavioral: 비건이나 식물성 식사를 선호하는 사람들<br><br>
+                    타겟층 설정<br>
+                    - 건강식을 중요시하며, 환경 보호, 윤리적 가치에 관심이 있는 20-40대 남녀 모두의 비건과 식물성 식사를 선호하는 사람들<br><br>
+                    포지셔닝<br>
+                    - 비건 버거는 건강하고 맛있는 대안 식품으로, 환경 보호와 윤리적 가치를 함께 실천할 수 있는 선택이다.<br>
+                </div>
+              
+                <div id="content2" class="content-section" style="display: none;">
+                    <!-- Django에서 받은 로고 및 문구 -->
+                    <div class="image-content"><img src="image/burger8.png"></div>
+                    <div class="text-content">
+                        <p>이름: Crunchy Begun Burger<br>
+                        캐치 프레이즈: Satisfy your cravings with our crispy and savory Begun Burger!</p>
+                    </div>
+                </div>
+              
+                <div id="content3" class="content-section" style="display: none;">
+                    <!-- Django에서 받은 SNS 컨텐츠 -->
+                    <div class="image-content"><img src="image/SNS8.png"></div>
+                    <div class="text-content">
+                        <p>저희의 최신 메뉴인 맛있는 비건 버거를 소개합니다! 신선하고 최고 품질의 재료로 만들어져, 이 버거는 당신의 미각을 자극할 것입니다. 점심이나 저녁 식사로 완벽한 선택이며, 테이크아웃으로 가져가거나 아늑한 레스토랑에서 즐길 수 있습니다. 지금 한 번 시도해보세요. 맛의 폭발을 경험할 준비를 해보세요! #비건버거 #신선한맛 #맛있는식사 #레스토랑의꿀템</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+        
+
+    <script>
+
+        /* button 기능 구현 */
+        // 1. 클릭한 버튼 외 콘텐츠 숨기기 
+        function showContent(contentId) {
+        const contentSections = document.getElementsByClassName("content-section");
+        for (let i = 0; i < contentSections.length; i++) {
+            contentSections[i].style.display = "none";
+        }
+
+        // 2. 선택 상태 해제되면 버튼 스타일 초기화
+        const buttons = document.getElementsByTagName("button");
+        for (let i = 0; i < buttons.length; i++) {
+            buttons[i].classList.remove("active");
+            buttons[i].style.backgroundColor = "#945F4F";
+        }
+
+        // 3. 선택 상태 설정되면 버튼 스타일 지정 및 콘텐츠 보여 주기
+        const selectedContent = document.getElementById(contentId);
+        selectedContent.style.display = "block";
+
+        const selectedButton = document.getElementById(`button${contentId.slice(-1)}`);
+        selectedButton.classList.add("active");
+        selectedButton.style.backgroundColor = "#512615";
+        }
+
+        const initialContentId = "content1";
+        showContent(initialContentId);
+    </script>
+</body>
