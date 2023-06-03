@@ -76,21 +76,24 @@ main {
 .contentBox {
     margin-top: 20px;
     width: 900px;
-    height: 400px;
     background: #EDDFD4;
     position: relative;
+    display: flex; 
+    align-items: flex-start; 
+    padding: 30px; 
+    margin-bottom: 100px; 
 }
 
 .contentText {
-    margin: 30px;
-    overflow: auto; /* 스크롤 적용 */
-    max-height: 340px; /* 최대 높이 설정 */
     font-family: 'Noto Serif KR';
     font-style: normal;
     font-weight: 600;
     font-size: 20px;
     line-height: 30px;
     color: #000000;
+    flex: 1; 
+    margin-right: 20px; 
+    overflow: auto; 
 }
 
 .image-content img {

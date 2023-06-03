@@ -48,7 +48,7 @@
         /* textarea 내에 설명 문구 */
         window.addEventListener('DOMContentLoaded', function() {
         const textarea = document.getElementById('myTextarea');
-        const placeholderText = `홍보하고자 하시는 서비스나 제품을 입력해 주세요.\nEspresso가 마케팅 전략을 분석해 로고, 이름, 캐치프레이즈, 마케팅 콘텐츠를 추천해 드릴게요.`;
+        const placeholderText = `홍보하고자 하시는 서비스나 제품을 입력해 주세요.\nEspresso가 마케팅 전략을 분석해 로고, 이름, 캐치프레이즈, 마케팅 콘텐츠를 추천해 드릴게요.\n\n입력은 ‘영어’로 아래와 같은 형태로 하시는 것을 추천해요!\n\nmake (상품 종류) for (마케팅 대상) provide (서비스 종류) for (타게팅 대상)\nex. make vegan burgers for restaurant customers`;
 
         textarea.value = placeholderText;
         textarea.style.color = '#766F6A';
@@ -91,6 +91,7 @@
             // 페이지 이동을 위해 window.location.href를 사용합니다.
             window.location.href = "loading.html";
         });
+        
     </script>
   </body>
 </html>
