@@ -88,7 +88,7 @@ main {
     position: relative;
 }
 
-.guideBox h1 {
+.content-h1 {
     margin: 30px 30px 20px 30px;
     font-family: 'Noto Serif KR';
     font-style: normal;
@@ -98,7 +98,7 @@ main {
     text-align: center;
 }
 
-.guideBox h3 {
+.content-h3 {
     font-family: 'Noto Serif KR';
     font-style: normal;
     font-weight: 700;
@@ -107,7 +107,7 @@ main {
     text-align: center;
 }
 
-.guideBox h6 {
+.content-h6 {
     margin: 20px 20px 0px 20px;
     font-family: 'Noto Serif KR';
     font-style: normal;
