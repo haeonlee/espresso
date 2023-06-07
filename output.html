@@ -6,6 +6,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ESPRESSO</title>
     <link rel="stylesheet" href="css/output.css">
+    <style>
+        .switch-container {
+          display: flex;
+          align-items: center;
+          margin-bottom: 20px;
+        }
+        
+        .switch-label {
+          margin-right: 10px;
+        }
+        
+        .switch {
+          position: relative;
+          display: inline-block;
+          width: 60px;
+          height: 34px;
+        }
+        
+        .switch input {
+          opacity: 0;
+          width: 0;
+          height: 0;
+        }
+        
+        .slider {
+          position: absolute;
+          cursor: pointer;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: #ccc;
+          transition: .4s;
+          border-radius: 34px;
+        }
+        
+        .slider:before {
+          position: absolute;
+          content: "";
+          height: 26px;
+          width: 26px;
+          left: 4px;
+          bottom: 4px;
+          background-color: white;
+          transition: .4s;
+          border-radius: 50%;
+        }
+        
+        input:checked + .slider {
+          background-color: #2196F3;
+        }
+        
+        input:focus + .slider {
+          box-shadow: 0 0 1px #2196F3;
+        }
+        
+        input:checked + .slider:before {
+          transform: translateX(26px);
+        }
+      </style>
 </head>
 
 <body>
@@ -26,13 +86,21 @@
             <div class="contentText">
                 <div id="content1" class="content-section">
                     <!-- Django에서 받은 마케팅 전략 -->
-                    Market Segmentation<br>
+                    <div class="switch-container">
+                        <label class="switch-label">English</label>
+                        <label class="switch">
+                          <input type="checkbox" id="switch">
+                          <span class="slider"></span>
+                        </label>
+                        <label class="switch-label">한국어</label>
+                      </div>
+                      <p id="message">Market Segmentation<br>
                         - Demographic: Young adults aged 18-35 who have a disposable income and are interested in exploring Europe.<br>
                         - Psychographic: Adventure seekers who want to experience different cultures, try new foods, and create unforgettable memories.<br>
                         - Behavioral: Active travelers who are willing to participate in outdoor activities and who are looking for a unique and authentic travel experience.<br><br>
-                    Targets: The target customers for this Europe Tour Package are young adults who are interested in exploring different European countries, experiencing new cultures, and creating unforgettable memories with like-minded people.<br><br>
-                    Positioning: Our Europe Tour Package offers a unique and <u>authentic</u> travel experience for young adults who are looking for <u>adventure</u> and fun.<br><br>
-                    Keyword: <u>adventure</u>, <u>authentic</u> <br>
+                        Targets: The target customers for this Europe Tour Package are young adults who are interested in exploring different European countries, experiencing new cultures, and creating unforgettable memories with like-minded people.<br><br>
+                        Positioning: Our Europe Tour Package offers a unique and <u>authentic</u> travel experience for young adults who are looking for <u>adventure</u> and fun.<br><br>
+                        Keyword: <u>adventure</u>, <u>authentic</u> <br></p>
                 </div>
               
                 <div id="content2" class="content-section" style="display: none;">
@@ -84,5 +152,29 @@
 
         const initialContentId = "content1";
         showContent(initialContentId);
+
+        const switchElement = document.getElementById("switch");
+        const messageElement = document.getElementById("message");
+    
+        switchElement.addEventListener("change", function() {
+        if (this.checked) {
+            messageElement.innerHTML = `시장 세분화<br>
+            - 인구 통계: 가처분 소득이 있고 유럽 여행에 관심이 있는 18~35세의 젊은 성인.<br>
+            - 심리학적: 다양한 문화를 경험하고, 새로운 음식을 맛보고, 잊을 수 없는 추억을 만들고자 하는 모험을 추구하는 여행객.<br>
+            - 행동 유형: 야외 활동에 기꺼이 참여하고 독특하고 진정한 여행 경험을 찾고자 하는 활동적인 여행자.<br><br>
+            타깃: 이 유럽 투어 패키지의 타겟 고객은 다양한 유럽 국가를 탐험하고, 새로운 문화를 경험하고, 같은 생각을 가진 사람들과 잊지 못할 추억을 만드는 데 관심이 있는 젊은 성인입니다.<br><br>
+            포지셔닝: 유럽 투어 패키지는 <u>모험</u>과 재미를 추구하는 젊은 성인들에게 독특하고 <u>진정</u>한 여행 경험을 제공합니다.<br><br>
+            keyword : <u>adventure</u>, <u>authentic</u>`;
+        } 
+        else {
+            messageElement.innerHTML = `Market Segmentation<br>
+            - Demographic: Young adults aged 18-35 who have a disposable income and are interested in exploring Europe.<br>
+            - Psychographic: Adventure seekers who want to experience different cultures, try new foods, and create unforgettable memories.<br>
+            - Behavioral: Active travelers who are willing to participate in outdoor activities and who are looking for a unique and authentic travel experience.<br><br>
+            Targets: The target customers for this Europe Tour Package are young adults who are interested in exploring different European countries, experiencing new cultures, and creating unforgettable memories with like-minded people.<br><br>
+            Positioning: Our Europe Tour Package offers a unique and <u>authentic</u> travel experience for young adults who are looking for <u>adventure</u> and fun.<br><br>
+            Keyword: <u>adventure</u>, <u>authentic</u>`;
+        }
+    });
     </script>
 </body>
